@@ -6,63 +6,54 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class SecondActivity extends Activity {
 
-    private Button bouton;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
-        // On récupère le bouton de la vue
-        this.bouton =  (Button) findViewById(R.id.BoutonFirstAct);
-        // On lui affecte le listener
-        this.bouton.setOnClickListener(this);
+        // On récupère le paramètre passé par ActivityMain
+        Intent intent = getIntent();
+        String valeur = intent.getStringExtra("INFO");
 
+        this.tv = (TextView) findViewById(R.id.Param);
+        this.tv.setText(valeur);
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("MAIN_ACTIVITY","On start");
+        Log.i("SECOND_ACTIVITY", "On start");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("MAIN_ACTIVITY","On stop");
+        Log.i("SECOND_ACTIVITY","On stop");
     }
 
     @Override
     protected void onPause() {
-
         super.onPause();
-        Log.i("MAIN_ACTIVITY","On pause");
+        Log.i("SECOND_ACTIVITY","On pause");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("MAIN_ACTIVITY","On resume");
+        Log.i("SECOND_ACTIVITY","On resume");
     }
-
-    @Override
-    protected void onDestroy() {
-        Log.i("MAIN_ACTIVITY","On destroy");
-        super.onDestroy();
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_second, menu);
         return true;
     }
 
@@ -79,19 +70,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void nouvelleActivite(){
-        // On déclenche la seconde activité
-        final Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra("INFO",getString(R.string.hello_world));
-        startActivity(intent);
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        // On déclenche la méthode du boutton
-        this.nouvelleActivite();
     }
 }
