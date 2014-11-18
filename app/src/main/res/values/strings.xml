@@ -6,5 +6,20 @@
     <string name="extra_passee">Paramètre de la MainActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_music">MusicActivity</string>
+
+    // Vue MusicActivity
+    <string name="activity_name_musicActivity">My Music</string>
+    <string name="titre_musicActivity">Add/Edit music</string>
+    <string name="hint_titre_musicActivity">Title</string>
+    <string name="categorie_musicActivity">Categories</string>
+    <string name="hint_categorie_musicActivity">Choose Category</string>
+    <string name="hint_dscritption_musicActivity">Description</string>
+    <string name="ok_musicActivity">Ok</string>
+    <string name="cancel_musicActivity">Cancel</string>
+    <string name="like_musicActivity">Like</string>
+    <string name="unlike_musicActivity">Unlike</string>
+
+
 
 </resources>

@@ -5,4 +5,16 @@
     <string name="hello_world">Bonjour le monde!</string>
     <string name="action_settings">Settings</string>
 
+
+    // Vue MusicActivity
+    <string name="activity_name_musicActivity">Mes musiques</string>
+    <string name="titre_musicActivity">Ajout/Edit musique</string>
+    <string name="hint_titre_musicActivity">Titre</string>
+    <string name="categorie_musicActivity">Catégories</string>
+    <string name="hint_categorie_musicActivity">Une Catégorie</string>
+    <string name="hint_dscritption_musicActivity">Description</string>
+    <string name="ok_musicActivity">Ok</string>
+    <string name="cancel_musicActivity">Annuler</string>
+    <string name="like_musicActivity">J\'aime</string>
+    <string name="unlike_musicActivity">Je n\'aime pas</string>
 </resources>

@@ -20,6 +20,10 @@
             android:name="com.example.mistra.myapplication.SecondActivity"
             android:label="@string/title_activity_second" >
         </activity>
+        <activity
+            android:name="com.example.mistra.myapplication.MusicActivity"
+            android:label="@string/title_activity_music" >
+        </activity>
     </application>
 
 </manifest>

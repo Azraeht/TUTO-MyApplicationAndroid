@@ -12,7 +12,8 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private Button bouton;
+    private Button boutontest1;
+    private Button musicActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         // On récupère le bouton de la vue
-        this.bouton =  (Button) findViewById(R.id.BoutonFirstAct);
+        this.boutontest1 = (Button) findViewById(R.id.BoutonFirstAct);
         // On lui affecte le listener
-        this.bouton.setOnClickListener(this);
+        this.boutontest1.setOnClickListener(this);
+
+        // On récupère le bouton de la vue dédié à l'activity Music
+        this.musicActivity = (Button) findViewById(R.id.MusicActivity);
+        // On lui affecte le listener
+        this.musicActivity.setOnClickListener(this);
 
 
     }
@@ -30,31 +36,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("MAIN_ACTIVITY","On start");
+        Log.i("MAIN_ACTIVITY", "On start");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("MAIN_ACTIVITY","On stop");
+        Log.i("MAIN_ACTIVITY", "On stop");
     }
 
     @Override
     protected void onPause() {
 
         super.onPause();
-        Log.i("MAIN_ACTIVITY","On pause");
+        Log.i("MAIN_ACTIVITY", "On pause");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("MAIN_ACTIVITY","On resume");
+        Log.i("MAIN_ACTIVITY", "On resume");
     }
 
     @Override
     protected void onDestroy() {
-        Log.i("MAIN_ACTIVITY","On destroy");
+        Log.i("MAIN_ACTIVITY", "On destroy");
         super.onDestroy();
 
     }
@@ -81,17 +87,32 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    public void nouvelleActivite(){
+    public void nouvelleActivite() {
         // On déclenche la seconde activité
         final Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra("INFO",getString(R.string.hello_world));
+        intent.putExtra("INFO", getString(R.string.hello_world));
         startActivity(intent);
 
     }
 
     @Override
     public void onClick(View v) {
-        // On déclenche la méthode du boutton
-        this.nouvelleActivite();
+        // On déclenche la méthode du boutton en fonction de l'id du bouton récupéré
+        if (v.getId() == R.id.BoutonFirstAct) {
+            // Accès à la vue avec passage de paramètres
+            this.nouvelleActivite();
+        } else if (v.getId() == R.id.MusicActivity) {
+            // Accès à l'activité musique
+            this.lancerActiviteMusic();
+        }
+    }
+
+    /**
+     * Méthode de lancement de l'activité Music
+     */
+    private void lancerActiviteMusic() {
+        // On crée un intent et on lance l'activité correspondante
+        final Intent intent = new Intent(this, MusicActivity.class);
+        startActivity(intent);
     }
 }
