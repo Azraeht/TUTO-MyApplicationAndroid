@@ -19,7 +19,11 @@
     <string name="cancel_musicActivity">Cancel</string>
     <string name="like_musicActivity">Like</string>
     <string name="unlike_musicActivity">Unlike</string>
+    <string name="title_activity_list_view_eleve">ListViewEleveActivity</string>
 
-
+    // Vue liste d'élève
+    <string name="hint_nom_eleve">Nom</string>
+    <string name="hint_prenom_eleve">Prenom</string>
+    <string name="BoutonAjoutEleve">Ajouter</string>
 
 </resources>

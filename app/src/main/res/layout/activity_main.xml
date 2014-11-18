@@ -8,10 +8,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/BoutonFirstAct"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="Liste Activity"
+        android:id="@+id/BoutonFirstAct"/>
 
     <SeekBar
         android:layout_width="wrap_content"
@@ -27,7 +25,15 @@
         android:layout_height="wrap_content"
         android:text="Music Activity"
         android:id="@+id/MusicActivity"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/seekBar" />
+        android:layout_below="@+id/HWActivity"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HelloWorld Activity"
+        android:id="@+id/HWActivity"
+        android:layout_below="@+id/BoutonFirstAct"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

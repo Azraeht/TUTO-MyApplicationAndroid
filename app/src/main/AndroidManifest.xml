@@ -24,6 +24,10 @@
             android:name="com.example.mistra.myapplication.MusicActivity"
             android:label="@string/title_activity_music" >
         </activity>
+        <activity
+            android:name="com.example.mistra.myapplication.ListViewEleveActivity"
+            android:label="@string/title_activity_list_view_eleve" >
+        </activity>
     </application>
 
 </manifest>
