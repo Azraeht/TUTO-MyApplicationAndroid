@@ -2,6 +2,7 @@ package com.example.mistra.myapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +22,9 @@ import java.util.List;
 
 public class ListViewEleveActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
+    private static final String LISTE_ELEVE = "LISTE_ELEVE";
     private ListView lv;
-    private List<EleveBean> listeleve;
+    private ArrayList<EleveBean> listeleve;
     private Button ajoutEleve;
     private EleveAdapter adapter;
 
@@ -45,11 +47,32 @@ public class ListViewEleveActivity extends Activity implements View.OnClickListe
         // On ajoute l'activité actuelle comme listener de la liste
         lv.setOnItemClickListener(this);
 
-
     }
 
-    private List<EleveBean> getListEleve() {
-        List<EleveBean> lv = new ArrayList<EleveBean>();
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // On sauvegarde dans le Bundle l'arrayList d'élèves parcelée
+        outState.putParcelableArrayList(LISTE_ELEVE, listeleve);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        if (savedInstanceState != null){
+            // On passe par une variable intermediare, sinon le cast ne passe pas
+            ArrayList<EleveBean> temp;
+            // On récupère la liste d'élève à partir du bundle et on la déparcele.
+            temp = savedInstanceState.getParcelableArrayList(LISTE_ELEVE);
+            // On vide la liste existante et on la remplit avec la liste restauré si elle est non vide
+            listeleve.clear();
+            if(temp != null){
+                listeleve.addAll(temp);
+            }
+        }
+    }
+
+    private ArrayList<EleveBean> getListEleve() {
+        ArrayList<EleveBean> lv = new ArrayList<EleveBean>();
         lv.add(new EleveBean("SANTUS","Brice","HOMME"));
         lv.add(new EleveBean("PREIN","Francois","HOMME"));
         lv.add(new EleveBean("TILENDIER","Pierre","HOMME"));
@@ -127,4 +150,7 @@ public class ListViewEleveActivity extends Activity implements View.OnClickListe
         Toast toast = Toast.makeText(this, "Sélection de : "+text, duration);
         toast.show();
     }
+
+
+
 }
