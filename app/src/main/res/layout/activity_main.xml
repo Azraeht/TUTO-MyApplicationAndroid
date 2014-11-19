@@ -36,4 +36,12 @@
         android:layout_below="@+id/BoutonFirstAct"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TwoPane Activity"
+        android:id="@+id/TPActivity"
+        android:layout_below="@+id/MusicActivity"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

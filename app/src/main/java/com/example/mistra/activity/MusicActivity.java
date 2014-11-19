@@ -1,4 +1,4 @@
-package com.example.mistra.myapplication;
+package com.example.mistra.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

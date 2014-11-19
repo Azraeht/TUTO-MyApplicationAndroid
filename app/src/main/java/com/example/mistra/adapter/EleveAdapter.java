@@ -1,4 +1,4 @@
-package com.example.mistra.myapplication;
+package com.example.mistra.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.mistra.beans.EleveBean;
 import com.example.mistra.holders.ViewHolder;
+import com.example.mistra.activity.R;
 
 import java.util.List;
 

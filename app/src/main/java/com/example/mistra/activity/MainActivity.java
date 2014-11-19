@@ -1,4 +1,4 @@
-package com.example.mistra.myapplication;
+package com.example.mistra.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button listactivity;
     private Button musicActivity;
     private Button hwactivity;
+    private Button tpactivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         this.hwactivity = (Button) findViewById(R.id.HWActivity);
         // On lui affecte le listener
         this.hwactivity.setOnClickListener(this);
+
+        // On récupère le bouton de la vue dédié à l'activity Music
+        this.tpactivity = (Button) findViewById(R.id.TPActivity);
+        // On lui affecte le listener
+        this.tpactivity.setOnClickListener(this);
 
 
     }
@@ -108,6 +114,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.HWActivity){
             // Accès à l'activité HelloWorld
             this.lancerHelloWorldActivity();
+        } else if (v.getId() == R.id.TPActivity){
+            // Accès à l'activié TwoPane
+            this.lancerTwoPaneActivity();
         }
     }
 
@@ -137,5 +146,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Intent intent = new Intent(this, ListViewEleveActivity.class);
         startActivity(intent);
 
+    }
+
+    /**
+     * Méthode de lancement de l'activité HelloWorld
+     */
+    private void lancerTwoPaneActivity() {
+        // On crée un intent et on lance l'activité correspondante
+        final Intent intent = new Intent(this, TwoPaneActivity.class);
+        startActivity(intent);
     }
 }

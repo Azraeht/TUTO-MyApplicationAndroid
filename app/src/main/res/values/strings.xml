@@ -7,7 +7,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_activity_music">MusicActivity</string>
-
     // Vue MusicActivity
     <string name="activity_name_musicActivity">My Music</string>
     <string name="titre_musicActivity">Add/Edit music</string>
@@ -20,10 +19,14 @@
     <string name="like_musicActivity">Like</string>
     <string name="unlike_musicActivity">Unlike</string>
     <string name="title_activity_list_view_eleve">ListViewEleveActivity</string>
-
     // Vue liste d'élève
     <string name="hint_nom_eleve">Nom</string>
     <string name="hint_prenom_eleve">Prenom</string>
     <string name="BoutonAjoutEleve">Ajouter</string>
+    <string name="title_activity_two_pane">TwoPaneActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    // Fragment Détail
+    <string name="fr_det_nom">Nom</string>
+    <string name="fr_det_prenom">Prenom</string>
 
 </resources>

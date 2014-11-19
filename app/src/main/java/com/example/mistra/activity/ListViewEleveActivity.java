@@ -1,8 +1,7 @@
-package com.example.mistra.myapplication;
+package com.example.mistra.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,19 +13,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mistra.adapter.EleveAdapter;
 import com.example.mistra.beans.EleveBean;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ListViewEleveActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     private static final String LISTE_ELEVE = "LISTE_ELEVE";
-    private ListView lv;
     private ArrayList<EleveBean> listeleve;
-    private Button ajoutEleve;
     private EleveAdapter adapter;
+    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +39,7 @@ public class ListViewEleveActivity extends Activity implements View.OnClickListe
         lv.setAdapter(adapter);
 
         // On ajoute comme listener au bouton l'activité
-        ajoutEleve = (Button) findViewById(R.id.AjoutEleveBouton);
+        Button ajoutEleve = (Button) findViewById(R.id.AjoutEleveBouton);
         ajoutEleve.setOnClickListener(this);
 
         // On ajoute l'activité actuelle comme listener de la liste

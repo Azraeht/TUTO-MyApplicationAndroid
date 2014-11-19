@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mistra.myapplication" >
+    package="com.example.mistra.activity" >
 
     <application
+        android:name="com.example.mistra.application.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.mistra.myapplication.MainActivity"
+            android:name="com.example.mistra.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,16 +18,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mistra.myapplication.SecondActivity"
+            android:name="com.example.mistra.activity.SecondActivity"
             android:label="@string/title_activity_second" >
         </activity>
         <activity
-            android:name="com.example.mistra.myapplication.MusicActivity"
+            android:name="com.example.mistra.activity.MusicActivity"
             android:label="@string/title_activity_music" >
         </activity>
         <activity
-            android:name="com.example.mistra.myapplication.ListViewEleveActivity"
+            android:name="com.example.mistra.activity.ListViewEleveActivity"
             android:label="@string/title_activity_list_view_eleve" >
+        </activity>
+        <activity
+            android:name="com.example.mistra.activity.TwoPaneActivity"
+            android:label="@string/title_activity_two_pane" >
         </activity>
     </application>
 
