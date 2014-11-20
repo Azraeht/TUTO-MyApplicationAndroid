@@ -139,7 +139,7 @@ public class ListFragment extends Fragment implements View.OnClickListener, Adap
      * Méthode d'ajout d'un listener pour les clic sur les élève
      * @param listener
      */
-    public void setListListenr(ListListener listener) {
+    public void setListListener(ListListener listener) {
         this.listener = listener;
     }
     private void clicEleveList(int position){

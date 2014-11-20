@@ -51,4 +51,6 @@ public class DetailFragment extends Fragment{
         tv_prenom = (TextView) getView().findViewById(R.id.fr_det_prenom);
         tv_prenom.setText(eleve.getPrenom());
     }
+
+
 }
