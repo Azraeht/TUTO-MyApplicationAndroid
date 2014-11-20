@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mistra.activity" >
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+
     <application
         android:name="com.example.mistra.application.MyApplication"
         android:allowBackup="true"
@@ -33,6 +35,10 @@
             android:name="com.example.mistra.activity.TwoPaneActivity"
             android:label="@string/title_activity_two_pane" >
         </activity>
+
+        <service
+            android:name="com.example.mistra.service.LocService">
+        </service>
     </application>
 
 </manifest>

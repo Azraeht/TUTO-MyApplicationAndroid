@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.mistra.service.LocService;
+
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -16,6 +18,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button musicActivity;
     private Button hwactivity;
     private Button tpactivity;
+
+    private Button startservloc;
+    private Button stopservloc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         this.tpactivity = (Button) findViewById(R.id.TPActivity);
         // On lui affecte le listener
         this.tpactivity.setOnClickListener(this);
+
+        // On récupère le bouton de la vue dédié à l'activity Music
+        this.startservloc = (Button) findViewById(R.id.start_serv_loc);
+        // On lui affecte le listener
+        this.startservloc.setOnClickListener(this);
+
+        // On récupère le bouton de la vue dédié à l'activity Music
+        this.stopservloc = (Button) findViewById(R.id.stop_serv_loc);
+        // On lui affecte le listener
+        this.stopservloc.setOnClickListener(this);
 
 
     }
@@ -117,6 +132,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.TPActivity){
             // Accès à l'activié TwoPane
             this.lancerTwoPaneActivity();
+        }else if(v.getId() == R.id.start_serv_loc){
+            this.startService(new Intent(this, LocService.class));
+        }else if(v.getId() == R.id.stop_serv_loc){
+            this.stopService(new Intent(this, LocService.class));
         }
     }
 

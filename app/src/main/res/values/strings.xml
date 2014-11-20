@@ -28,5 +28,8 @@
     // Fragment Détail
     <string name="fr_det_nom">Nom</string>
     <string name="fr_det_prenom">Prenom</string>
+    // Service Localisation
+    <string name="stop_serv_loc">Stop</string>
+    <string name="launch_serv_loc">Start</string>
 
 </resources>
