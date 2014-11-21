@@ -8,11 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.mistra.application.CommonActivity;
+import com.squareup.otto.Subscribe;
+
+import com.example.mistra.application.MyApplication;
 import com.example.mistra.service.LocService;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends CommonActivity implements View.OnClickListener {
 
     private Button listactivity;
     private Button musicActivity;
@@ -23,7 +28,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button stopservloc;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -58,19 +63,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // On lui affecte le listener
         this.stopservloc.setOnClickListener(this);
 
-
+        this.updateTitle("Main Activity");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Log.i("MAIN_ACTIVITY", "On start");
+        MyApplication.getInstance().getEventBus().register(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Log.i("MAIN_ACTIVITY", "On stop");
+        MyApplication.getInstance().getEventBus().unregister(this);
     }
 
     @Override
@@ -91,6 +98,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Log.i("MAIN_ACTIVITY", "On destroy");
         super.onDestroy();
 
+    }
+    @Subscribe
+    public void afficherLoc(String Loc){
+        // Affichage
+        Log.i("LOC_SERV_UPDATE",Loc);
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(this, Loc, duration);
+        toast.show();
     }
 
     @Override
@@ -133,10 +148,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             // Accès à l'activié TwoPane
             this.lancerTwoPaneActivity();
         }else if(v.getId() == R.id.start_serv_loc){
-            this.startService(new Intent(this, LocService.class));
+            startProgress();
+            startService(new Intent(this, LocService.class));
+
         }else if(v.getId() == R.id.stop_serv_loc){
+            stopProgress();
             this.stopService(new Intent(this, LocService.class));
         }
+
     }
 
     /**

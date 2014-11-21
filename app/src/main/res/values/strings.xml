@@ -32,4 +32,10 @@
     <string name="stop_serv_loc">Stop</string>
     <string name="launch_serv_loc">Start</string>
 
+    // Dialog d'attente
+    <string name="loading">Veuillez patientez&#8230;</string>
+    <string name="ok">OK</string>
+    <string name="valider">Valider</string>
+    <string name="annuler">Annuler</string>
+
 </resources>

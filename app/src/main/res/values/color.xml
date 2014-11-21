@@ -3,4 +3,9 @@
 
     // color du texte titre utilisé par activity_music.xml
     <color name="titlecolor">#FF767676</color>
+
+    // Dialog
+    <color name="blue">#00AAD4</color>
+    <color name="orange">#ff7f2a</color>
+
 </resources>

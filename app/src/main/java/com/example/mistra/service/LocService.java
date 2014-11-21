@@ -7,11 +7,19 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.mistra.application.MyApplication;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class LocService extends Service implements LocationListener {
     LocationManager locmanager;
+    private Timer timer;
+
     public LocService() {
     }
 
@@ -24,6 +32,8 @@ public class LocService extends Service implements LocationListener {
     @Override
     public void onCreate() {
         super.onCreate();
+        // On crée un timer pour la mort programmée du service
+        timer = new Timer();
         Log.i("LOC_SERV","Service de localisation lancé");
     }
 
@@ -43,6 +53,14 @@ public class LocService extends Service implements LocationListener {
             locmanager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,0, this);
         if(locmanager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER))
             locmanager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,5000,0,this);
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                stopSelf();
+            }
+        }, 0, 3000);
+
         return START_NOT_STICKY;
     }
 
@@ -52,10 +70,7 @@ public class LocService extends Service implements LocationListener {
         double longi = location.getLongitude();
         double lati = location.getLatitude();
 
-        Log.i("LOC_SERV_UPDATE","L="+longi+" l="+lati);
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(this, "L="+longi+" l="+lati, duration);
-        toast.show();
+        MyApplication.getInstance().getEventBus().post("L="+longi+" l="+lati);
     }
 
     @Override

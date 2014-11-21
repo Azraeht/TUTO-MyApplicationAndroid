@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Titre Common Layout"
+        android:id="@+id/commonLayoutTitle"
+        android:layout_alignParentStart="true"
+        android:background="#ff6bff31"
+        android:layout_alignParentTop="true" />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/commonLayoutTitle"
+        android:id="@+id/common_frame_layout"
+        android:layout_alignParentStart="true">
+
+    </FrameLayout>
+
+    <EditText
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:id="@+id/editText4"
+        android:layout_alignBottom="@+id/common_frame_layout"
+        android:background="#ffff483f"
+        android:layout_alignRight="@+id/commonLayoutTitle" />
+
+</RelativeLayout>
